@@ -45,7 +45,7 @@ export default function Home() {
     if (saved) {
       try { setSessions(JSON.parse(saved)); } catch (e) { console.error("History Error", e); }
     }
-  }, [initSpeechRecognition]);
+  }, []);
 
   useEffect(() => {
     initSpeechRecognition();
@@ -54,7 +54,7 @@ export default function Home() {
       stopVisualizer();
       if (synthRef.current) synthRef.current.cancel();
     };
-  }, [initSpeechRecognition]);
+  }, []);
   const saveCurrentSession = () => {
     if (transcript.length === 0) return;
     const newSession = {
